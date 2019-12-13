@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Configuration;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace Framework.Selenium
 {
@@ -61,7 +59,20 @@ namespace Framework.Selenium
             return webDriver ?? (webDriver = GetNewDriver());
         }
 
-        public void windowMaximize()
+        public void WaitForPageToLoad()
+        {
+            Func<IWebDriver, bool> condition = driver =>
+            {
+                var result =
+                    ((IJavaScriptExecutor) driver).ExecuteScript(
+                        "return document['readyState'] ? 'complete' == document.readyState : true");
+                return result is bool && (bool) result;
+            };
+            var wait = new WebDriverWait(GetDriver(), TimeSpan.FromSeconds(double.Parse(timeOutForPageLoad)));
+            wait.Until(condition);
+        }
+
+        public void WindowMaximize()
         {
             GetDriver().Manage().Window.Maximize();
         }

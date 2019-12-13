@@ -1,0 +1,118 @@
+﻿2019-12-13T17:32:25.1845376+03:00;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2019-12-13T17:32:25.1855352+03:00;VSTestExecutionThread;Info;SpecFlow+Runner 3.1.38 in Framework clr40 in x86 mode execution started
+2019-12-13T17:32:25.1855352+03:00;VSTestExecutionThread;Info;TestAdapter Location: D:\CSharpProjects\SeleniumCSharpFramework\packages\SpecRun.Runner.3.1.38\tools\net45\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-12-13T17:32:25.2184465+03:00;VSTestExecutionThread;Info;SpecRun: running tests in D:\CSharpProjects\SeleniumCSharpFramework\OnlinerTest\bin\Debug\OnlinerTest.dll
+2019-12-13T17:32:25.2184465+03:00;VSTestExecutionThread;Info;Output folder configured to "D:\CSharpProjects\SeleniumCSharpFramework\TestResults" (default)
+2019-12-13T17:32:25.2184465+03:00;VSTestExecutionThread;Info;Profile: 
+2019-12-13T17:32:25.2403886+03:00;VSTestExecutionThread;Info;Log file path: D:\CSharpProjects\SeleniumCSharpFramework\TestResults\Unnamed project__2019-12-13T173225.log
+2019-12-13T17:32:25.2553476+03:00;VSTestExecutionThread;Info;SpecFlow+Runner Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-12-13T17:32:25.2623283+03:00;Thread#13;Info;Checking license
+2019-12-13T17:32:25.2772880+03:00;Thread#13;Info;Evaluation mode: test execution starts in 12 seconds... (this delay is removed in the registered version)
+2019-12-13T17:32:37.2776355+03:00;Thread#13;Info;Evaluation delay finished.
+2019-12-13T17:32:37.2956059+03:00;Thread#13;Info;License check completed
+2019-12-13T17:32:37.2956059+03:00;Thread#13;Info;starting test run
+2019-12-13T17:32:37.3105759+03:00;Thread#13;Info;Discovering target: Default
+2019-12-13T17:32:37.3105759+03:00;Thread#13;Info;Discovering tests from assembly: D:\CSharpProjects\SeleniumCSharpFramework\OnlinerTest\bin\Debug\OnlinerTest.dll
+2019-12-13T17:32:37.6496533+03:00;Thread#13;Info;Discovered tests from assembly: D:\CSharpProjects\SeleniumCSharpFramework\OnlinerTest\bin\Debug\OnlinerTest.dll
+2019-12-13T17:32:37.6506227+03:00:Test Suite Dump
+2019-12-13T17:32:37.6526171+03:00:#0: Unnamed project/ - 
+2019-12-13T17:32:37.6526171+03:00:#1: Default - 
+2019-12-13T17:32:37.6526171+03:00:#2: OnlinerTest - 
+2019-12-13T17:32:37.6526171+03:00:#3: TestFeature - 
+2019-12-13T17:32:37.6815400+03:00:#4: Add two numbers - TestAssembly:OnlinerTest/Feature:TestFeature/Scenario:Add+two+numbers
+2019-12-13T17:32:37.6815400+03:00:End: Test Suite Dump
+2019-12-13T17:32:37.7005159+03:00:Thread#0:Scheduler: get next test for thread 0
+2019-12-13T17:32:37.7025114+03:00:Thread#:Scheduler: testitem #4 from normal test queue 
+2019-12-13T17:32:37.7025114+03:00:Thread#0:Scheduler: considering testitem #4 for thread 0
+2019-12-13T17:32:37.7064733+03:00:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2019-12-13T17:32:37.7064733+03:00:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2019-12-13T17:32:37.7064733+03:00:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2019-12-13T17:32:37.7064733+03:00:Thread#0:Scheduler: using testitem #4 for thread 0
+2019-12-13T17:32:37.7074698+03:00:Thread#0:Scheduler: Test #4 is scheduled for thread
+2019-12-13T17:32:37.7074698+03:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-12-13T17:32:37.7104615+03:00:Thread #0: creating new test thread executor for OnlinerTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2019-12-13T17:32:37.7114589+03:00:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-12-13T17:32:37.7134814+03:00:Thread #0: Creating test assembly executor for execution model AppDomain
+2019-12-13T17:32:37.7144810+03:00:Thread #0: using TechTalk.SpecRun.Framework.Execution.InProcess.InProcAppDomainTestAssemblyExecutorHost to execute tests
+2019-12-13T17:32:37.8829979+03:00:Thread#0:T:-> Loading plugin D:\CSharpProjects\SeleniumCSharpFramework\OnlinerTest\bin\Debug\SpecRun.Runtime.SpecFlowPlugin.dll
+2019-12-13T17:32:37.8869871+03:00:Thread#0:T:-> Loading plugin D:\CSharpProjects\SeleniumCSharpFramework\OnlinerTest\bin\Debug\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.dll
+2019-12-13T17:32:37.9408422+03:00:test thread #0 error: System.Exception: Unit test Provider already set.
+
+Server stack trace: 
+   at TechTalk.SpecFlow.UnitTestProvider.UnitTestProviderConfiguration.UseUnitTestProvider(String unitTestProviderName) in D:\a\1\s\TechTalk.SpecFlow\UnitTestProvider\UnitTestProviderConfiguration.cs:line 13
+   at TechTalk.SpecFlow.NUnit.SpecFlowPlugin.RuntimePlugin.Initialize(RuntimePluginEvents runtimePluginEvents, RuntimePluginParameters runtimePluginParameters, UnitTestProviderConfiguration unitTestProviderConfiguration)
+   at TechTalk.SpecFlow.Infrastructure.ContainerBuilder.LoadPlugin(String pluginPath, IRuntimePluginLoader pluginLoader, RuntimePluginEvents runtimePluginEvents, UnitTestProviderConfiguration unitTestProviderConfigration, ITraceListener traceListener) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\ContainerBuilder.cs:line 159
+   at TechTalk.SpecFlow.Infrastructure.ContainerBuilder.LoadPlugins(IRuntimeConfigurationProvider configurationProvider, ObjectContainer container, RuntimePluginEvents runtimePluginEvents, SpecFlowConfiguration specFlowConfiguration, UnitTestProviderConfiguration unitTestProviderConfigration, Assembly testAssembly) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\ContainerBuilder.cs:line 146
+   at TechTalk.SpecFlow.Infrastructure.ContainerBuilder.CreateGlobalContainer(Assembly testAssembly, IRuntimeConfigurationProvider configurationProvider) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\ContainerBuilder.cs:line 57
+   at TechTalk.SpecFlow.TestRunnerManager.CreateTestRunnerManager(Assembly testAssembly, IContainerBuilder containerBuilder) in D:\a\1\s\TechTalk.SpecFlow\TestRunnerManager.cs:line 215
+   at TechTalk.SpecFlow.TestRunnerManager.GetTestRunnerManager(Assembly testAssembly, IContainerBuilder containerBuilder, Boolean createIfMissing) in D:\a\1\s\TechTalk.SpecFlow\TestRunnerManager.cs:line 201
+   at TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(Assembly testAssembly, Nullable`1 managedThreadId, IContainerBuilder containerBuilder) in D:\a\1\s\TechTalk.SpecFlow\TestRunnerManager.cs:line 242
+   at OnlinerTest_SpecFlowPlusRunnerAssemblyHooks.AssemblyInitialize() in D:\CSharpProjects\SeleniumCSharpFramework\OnlinerTest\obj\Debug\SpecFlow.Plus.Runner.AssemblyHooks.cs:line 8
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.ExecuteInternal(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.Execute(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TestAssemblyExecutor.RunAssemblyInitializeExecutors(ITestAssemblyExecutorsProvider testAssemblyExecutorsProvider, ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TestAssemblyExecutor.RunTests(ITestAssemblyExecutorState executorState, ITestAssemblyExecutorsProvider testAssemblyExecutorsProvider, ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TestAssemblyExecutor.RunTests(TestThreadState testThreadState)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink._PrivateProcessMessage(IntPtr md, Object[] args, Object server, Object[]& outArgs)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TechTalk.SpecRun.Framework.ITestAssemblyExecutor.RunTests(TestThreadState testThreadState)
+   at TechTalk.SpecRun.Framework.Execution.InProcess.InProcAppDomainTestAssemblyExecutorHost.RunTests(TestThreadState testThreadState)
+   at TechTalk.SpecRun.Framework.TestThread.RunNonEmptyTestSuite(CancellationToken cancellationToken, TestThreadState testThreadState)
+   at TechTalk.SpecRun.Framework.TestThread.Run(ITestExecutionManager executionManagerForRun, CancellationToken cancellationToken)
+   at TechTalk.SpecRun.Framework.AsyncTestThreadRunner.RunSync(TestExecutionManager executionManager, CancellationToken cancellationToken)
+2019-12-13T17:32:37.9418398+03:00:test thread error: TechTalk.SpecRun.Framework.SpecRunException: At least one test thread aborted. ---> System.Exception: Unit test Provider already set.
+
+Server stack trace: 
+   at TechTalk.SpecFlow.UnitTestProvider.UnitTestProviderConfiguration.UseUnitTestProvider(String unitTestProviderName) in D:\a\1\s\TechTalk.SpecFlow\UnitTestProvider\UnitTestProviderConfiguration.cs:line 13
+   at TechTalk.SpecFlow.NUnit.SpecFlowPlugin.RuntimePlugin.Initialize(RuntimePluginEvents runtimePluginEvents, RuntimePluginParameters runtimePluginParameters, UnitTestProviderConfiguration unitTestProviderConfiguration)
+   at TechTalk.SpecFlow.Infrastructure.ContainerBuilder.LoadPlugin(String pluginPath, IRuntimePluginLoader pluginLoader, RuntimePluginEvents runtimePluginEvents, UnitTestProviderConfiguration unitTestProviderConfigration, ITraceListener traceListener) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\ContainerBuilder.cs:line 159
+   at TechTalk.SpecFlow.Infrastructure.ContainerBuilder.LoadPlugins(IRuntimeConfigurationProvider configurationProvider, ObjectContainer container, RuntimePluginEvents runtimePluginEvents, SpecFlowConfiguration specFlowConfiguration, UnitTestProviderConfiguration unitTestProviderConfigration, Assembly testAssembly) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\ContainerBuilder.cs:line 146
+   at TechTalk.SpecFlow.Infrastructure.ContainerBuilder.CreateGlobalContainer(Assembly testAssembly, IRuntimeConfigurationProvider configurationProvider) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\ContainerBuilder.cs:line 57
+   at TechTalk.SpecFlow.TestRunnerManager.CreateTestRunnerManager(Assembly testAssembly, IContainerBuilder containerBuilder) in D:\a\1\s\TechTalk.SpecFlow\TestRunnerManager.cs:line 215
+   at TechTalk.SpecFlow.TestRunnerManager.GetTestRunnerManager(Assembly testAssembly, IContainerBuilder containerBuilder, Boolean createIfMissing) in D:\a\1\s\TechTalk.SpecFlow\TestRunnerManager.cs:line 201
+   at TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(Assembly testAssembly, Nullable`1 managedThreadId, IContainerBuilder containerBuilder) in D:\a\1\s\TechTalk.SpecFlow\TestRunnerManager.cs:line 242
+   at OnlinerTest_SpecFlowPlusRunnerAssemblyHooks.AssemblyInitialize() in D:\CSharpProjects\SeleniumCSharpFramework\OnlinerTest\obj\Debug\SpecFlow.Plus.Runner.AssemblyHooks.cs:line 8
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.ExecuteInternal(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TaskExecutors.StaticOrInstanceMethodExecutor.Execute(ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TestAssemblyExecutor.RunAssemblyInitializeExecutors(ITestAssemblyExecutorsProvider testAssemblyExecutorsProvider, ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TestAssemblyExecutor.RunTests(ITestAssemblyExecutorState executorState, ITestAssemblyExecutorsProvider testAssemblyExecutorsProvider, ITestThreadExecutionContext testThreadExecutionContext)
+   at TechTalk.SpecRun.Framework.TestAssemblyExecutor.RunTests(TestThreadState testThreadState)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink._PrivateProcessMessage(IntPtr md, Object[] args, Object server, Object[]& outArgs)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TechTalk.SpecRun.Framework.ITestAssemblyExecutor.RunTests(TestThreadState testThreadState)
+   at TechTalk.SpecRun.Framework.Execution.InProcess.InProcAppDomainTestAssemblyExecutorHost.RunTests(TestThreadState testThreadState)
+   at TechTalk.SpecRun.Framework.TestThread.RunNonEmptyTestSuite(CancellationToken cancellationToken, TestThreadState testThreadState)
+   at TechTalk.SpecRun.Framework.TestThread.Run(ITestExecutionManager executionManagerForRun, CancellationToken cancellationToken)
+   at TechTalk.SpecRun.Framework.AsyncTestThreadRunner.RunSync(TestExecutionManager executionManager, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+2019-12-13T17:32:37.9418398+03:00:Trying to cancel thread
+2019-12-13T17:32:37.9418398+03:00:Thread cancelled
+2019-12-13T17:32:37.9488488+03:00:Thread#-1: Test #4/0 is started on thread #-1
+2019-12-13T17:32:37.9498464+03:00:Thread#-1: Test #4/0 is finished on thread #-1 as Skipped within 0.0009976 seconds
+2019-12-13T17:32:37.9518136+03:00:Thread#-1:Scheduler: get next test for thread -1
+2019-12-13T17:32:37.9518136+03:00:Thread#:Scheduler: at the end of normal test queue
+2019-12-13T17:32:37.9518136+03:00:Thread#-1:Scheduler: enumerator for thread is at end
+2019-12-13T17:32:37.9657760+03:00;Thread#13;Info;test run finished
+2019-12-13T17:32:37.9667733+03:00;Thread#13;Info;publishing test results
+2019-12-13T17:32:37.9707641+03:00;Thread#13;Info;test results published
+2019-12-13T17:32:37.9717606+03:00;Thread#13;Info;generating reports
+2019-12-13T17:32:38.0754933+03:00;Thread#13;Info;Starting external report generation process
+2019-12-13T17:32:39.3770113+03:00;Thread#13;Info;Successfully generated reports.
+2019-12-13T17:32:39.3789779+03:00;Thread#13;Info;Successfully generated reports
+2019-12-13T17:32:39.3849895+03:00:Total: 1
+2019-12-13T17:32:39.3859868+03:00:Succeeded: 0
+2019-12-13T17:32:39.3869864+03:00:Ignored: 0
+2019-12-13T17:32:39.3869864+03:00:Pending: 0
+2019-12-13T17:32:39.3869864+03:00:Skipped: 1
+2019-12-13T17:32:39.3879811+03:00:Failed: 0
+2019-12-13T17:32:39.3909464+03:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-12-13T17:32:39.3909464+03:00;VSTestExecutionThread;Info;adding Test Execution Report 'D:\CSharpProjects\SeleniumCSharpFramework\TestResults\Unnamed project__2019-12-13T173225.html'
+========== End of log file ==========
