@@ -1,0 +1,10 @@
+﻿{
+  "stepAssemblies": [
+  ],
+  "plugins": [
+  ],
+  "runtime": {
+    "stopAtFirstError": true,
+    "missingOrPendingStepsOutcome": "Error"
+  }
+}

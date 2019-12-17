@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlinerTest", "OnlinerTest\OnlinerTest.csproj", "{5E345B58-16E0-4660-A9C9-DB2C60BD3147}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationFramework", "AutomationFramework\AutomationFramework.csproj", "{0BAE3F44-29EF-42D7-8083-2CD08A023CD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E345B58-16E0-4660-A9C9-DB2C60BD3147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E345B58-16E0-4660-A9C9-DB2C60BD3147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E345B58-16E0-4660-A9C9-DB2C60BD3147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E345B58-16E0-4660-A9C9-DB2C60BD3147}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BAE3F44-29EF-42D7-8083-2CD08A023CD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BAE3F44-29EF-42D7-8083-2CD08A023CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BAE3F44-29EF-42D7-8083-2CD08A023CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BAE3F44-29EF-42D7-8083-2CD08A023CD4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {469DCD39-4D26-4984-A8A7-0A93CDA21C38}
+	EndGlobalSection
+EndGlobal

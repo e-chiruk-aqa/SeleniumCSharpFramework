@@ -1,4 +1,5 @@
-﻿using Framework.Selenium;
+﻿using AutomationFramework.Browsers;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace OnlinerTest.Hooks
@@ -6,13 +7,14 @@ namespace OnlinerTest.Hooks
     [Binding]
     public sealed class BeforeAfter
     {
-        [BeforeTestRun]
+        [BeforeScenario()]
         public static void Before()
         {
             Browser.GetInstance().WindowMaximize();
+            Assert.IsTrue(true);
         }
 
-        [AfterTestRun]
+        [AfterScenario()]
         public static void After()
         {
             Browser.GetInstance().Exit();
