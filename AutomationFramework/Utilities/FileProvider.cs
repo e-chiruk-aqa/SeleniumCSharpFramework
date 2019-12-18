@@ -4,9 +4,11 @@ using System.Reflection;
 
 namespace AutomationFramework.Utilities
 {
-    public static class FileReader
+    public static class FileProvider
     {
         private const string ResourcesFolder = "Resources";
+        private const string OutputFolder = "Output";
+
         public static string GetTextFromEmbeddedResource(string embeddedResourcePath, Assembly resourceAssembly = null)
         {
             var assembly = resourceAssembly ?? Assembly.GetCallingAssembly();
@@ -43,6 +45,17 @@ namespace AutomationFramework.Utilities
             {
                 return reader.ReadToEnd();
             }
+        }
+
+        public static string GetOutputDirectory()
+        {
+            var location = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, OutputFolder);
+            if (!Directory.Exists(location))
+            {
+                Directory.CreateDirectory(location);
+            }
+
+            return location;
         }
 
         private static FileInfo GetResourceFile(string fileName)

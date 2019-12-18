@@ -16,7 +16,7 @@ namespace AutomationFramework.Objects.Elements
             try
             {
                 //log
-                webElement = Browser.GetDriver().FindElement(selector);
+                webElement = Browser.GetInstance().GetDriver().FindElement(selector);
             }
             catch (NoSuchElementException e)
             {

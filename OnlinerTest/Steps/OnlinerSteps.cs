@@ -1,5 +1,6 @@
 ﻿using AutomationFramework;
 using AutomationFramework.Browsers;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace OnlinerTest.Steps
@@ -16,7 +17,7 @@ namespace OnlinerTest.Steps
         [When(@"I click Catalog tab")]
         public void WhenIClickCatalogTab()
         {
-            ScenarioContext.Current.Pending();
+            Assert.Fail();
         }
 
         [Then(@"Catalog page is opened")]

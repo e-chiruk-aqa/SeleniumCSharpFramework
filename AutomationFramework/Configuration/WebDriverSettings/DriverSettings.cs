@@ -11,10 +11,6 @@ namespace AutomationFramework.Configuration.WebDriverSettings
 {
     public abstract class DriverSettings : IDriverSettings
     {
-        /// <summary>
-        /// Instantiates class using JSON file with general settings.
-        /// </summary>
-        /// <param name="settingsFile">JSON settings file.</param>
         protected DriverSettings(ISettingsFile settingsFile)
         {
             SettingsFile = settingsFile;

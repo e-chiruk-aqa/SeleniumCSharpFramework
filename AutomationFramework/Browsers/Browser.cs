@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Configuration;
 using AutomationFramework.Configuration;
+using AutomationFramework.Utilities;
 using NLog;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -9,19 +11,30 @@ namespace AutomationFramework.Browsers
     public sealed class Browser
     {
         private static IWebDriver webDriver;
+
         private static Browser instance { get; set; }
-        private static string timeOutForPageLoad { get; set; }
+
+        public static TimeSpan PageLoadTimeout { get; private set; }
+
+        public static TimeSpan ImplicitWaitTimeout { get; private set; }
+
+        public static TimeSpan ConditionTimeout { get; private set; }
+
+        public static TimeSpan PollingInterval { get; private set; }
+
+        public static ISettingsFile SettingsFile { get; private set; }
 
         public static Logger Logger = LogManager.GetCurrentClassLogger();
 
-        private Browser()
-        {
-            //log
-        }
+        private Browser() { }
 
         private static void InitProperties()
         {
-            timeOutForPageLoad = Settings.GetSettings().GetValue<string>(".timeouts.timeoutPageLoad");
+            Logger.Info("Init driver properties");
+            SettingsFile = Settings.GetSettings();
+            PageLoadTimeout = TimeSpan.FromSeconds(double.Parse(SettingsFile.GetValue<string>(".timeouts.timeoutPageLoad")));
+            ImplicitWaitTimeout = TimeSpan.FromSeconds(double.Parse(SettingsFile.GetValue<string>(".timeouts.timeoutImplicit")));
+            ConditionTimeout = TimeSpan.FromSeconds(double.Parse(SettingsFile.GetValue<string>(".timeouts.timeoutCondition")));
             webDriver = GetNewDriver();
         }
 
@@ -35,29 +48,14 @@ namespace AutomationFramework.Browsers
 
         private static IWebDriver GetNewDriver()
         {
+            Logger.Info("Creating new driver");
             var driver = BrowserFactory.GetDriver();
-            driver.Manage().Timeouts().ImplicitWait =
-                TimeSpan.FromSeconds(double.Parse(Settings.GetSettings().GetValue<string>(".timeouts.timeoutImplicit")));
+            driver.Manage().Timeouts().ImplicitWait = ImplicitWaitTimeout;
+            driver.Manage().Timeouts().PageLoad = PageLoadTimeout;
             return driver;
         }
 
-        public void Exit()
-        {
-            try
-            {
-                GetDriver().Quit();
-            }
-            catch (Exception e)
-            {
-                //log
-            }
-            finally
-            {
-                webDriver = null;
-            }
-        }
-
-        public static IWebDriver GetDriver()
+        public IWebDriver GetDriver()
         {
             return webDriver ?? (webDriver = GetNewDriver());
         }
@@ -71,8 +69,20 @@ namespace AutomationFramework.Browsers
                         "return document['readyState'] ? 'complete' == document.readyState : true");
                 return result is bool && (bool) result;
             };
-            var wait = new WebDriverWait(GetDriver(), TimeSpan.FromSeconds(double.Parse(timeOutForPageLoad)));
+            var wait = new WebDriverWait(GetDriver(), PageLoadTimeout);
             wait.Until(condition);
+        }
+
+        public void SetImplicitWaitTimeout(TimeSpan timeout)
+        {
+            GetDriver().Manage().Timeouts().ImplicitWait = timeout;
+        }
+
+        public void Quit()
+        {
+            Logger.Info("Closing browser");
+            GetDriver().Quit();
+            webDriver = null;
         }
 
         public void WindowMaximize()
@@ -82,17 +92,25 @@ namespace AutomationFramework.Browsers
 
         public void Refresh()
         {
+            Logger.Info("Refreshing the page");
             GetDriver().Navigate().Refresh();
         }
 
         public void Back()
         {
+            Logger.Info("Return to previous page");
             GetDriver().Navigate().Back();
         }
 
         public void Navigate(string url)
         {
+            Logger.Info($"Navigate to url - '{url}'");
             GetDriver().Navigate().GoToUrl(url);
+        }
+
+        public byte[] GetScreenshot()
+        {
+            return ((ITakesScreenshot) GetDriver()).GetScreenshot().AsByteArray;
         }
     }
 }

@@ -19,19 +19,19 @@ namespace AutomationFramework.Utilities
         public JsonSettingsFile(FileInfo fileInfo)
         {
             resourceName = fileInfo.Name;
-            fileContent = FileReader.GetTextFromFile(fileInfo);
+            fileContent = FileProvider.GetTextFromFile(fileInfo);
         }
 
         public JsonSettingsFile(string resourceFileName)
         {
             resourceName = resourceFileName;
-            fileContent = FileReader.GetTextFromResource(resourceFileName);
+            fileContent = FileProvider.GetTextFromResource(resourceFileName);
         }
 
         public JsonSettingsFile(string embededResourceName, Assembly assembly)
         {
             resourceName = embededResourceName;
-            fileContent = FileReader.GetTextFromEmbeddedResource(embededResourceName, assembly);
+            fileContent = FileProvider.GetTextFromEmbeddedResource(embededResourceName, assembly);
         }
 
         public T GetValue<T>(string path)

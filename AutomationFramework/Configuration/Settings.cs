@@ -9,7 +9,7 @@ namespace AutomationFramework.Configuration
         {
             var profileNameFromEnvironment = EnvironmentConfiguration.GetVariable("profile");
             var settingsProfile = profileNameFromEnvironment == null ? "settings.json" : $"settings.{profileNameFromEnvironment}.json";
-            var jsonFile = FileReader.IsResourceFileExist(settingsProfile)
+            var jsonFile = FileProvider.IsResourceFileExist(settingsProfile)
                 ? new JsonSettingsFile(settingsProfile)
                 : new JsonSettingsFile($"Resources.{settingsProfile}", Assembly.GetCallingAssembly());
             return jsonFile;
