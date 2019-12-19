@@ -1,6 +1,7 @@
 ﻿using System;
 using Allure.Commons;
 using AutomationFramework.Browsers;
+using AutomationFramework.Logging;
 using AutomationFramework.Utilities;
 using TechTalk.SpecFlow;
 
@@ -37,6 +38,8 @@ namespace OnlinerTest.Hooks
                 _allureLifecycle.AddAttachment(MakeScreenshot());
             }
             Browser.GetInstance().Quit();
+            _allureLifecycle.AddAttachment(Logger.GetLogLocation());
+
         }
 
         private string MakeScreenshot()

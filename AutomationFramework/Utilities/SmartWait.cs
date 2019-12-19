@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
+using System.Threading;
 using AutomationFramework.Browsers;
-using AutomationFramework.Configuration;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -25,6 +25,37 @@ namespace AutomationFramework.Utilities
             var result = wait.Until(condition);
             Browser.GetInstance().SetImplicitWaitTimeout(Browser.ImplicitWaitTimeout);
             return result;
+        }
+
+        public static void WaitForTrue(Func<bool> condition, TimeSpan? timeout = null, TimeSpan? pollingInterval = null, string message = null)
+        {
+            if (condition == null)
+            {
+                throw new ArgumentNullException(nameof(condition), "condition cannot be null");
+            }
+
+            var waitTimeout = ResolveConditionTimeout(timeout);
+            var checkInterval = ResolvePollingInterval(pollingInterval);
+            var stopwatch = Stopwatch.StartNew();
+            while (true)
+            {
+                if (condition())
+                {
+                    return;
+                }
+
+                if (stopwatch.Elapsed > waitTimeout)
+                {
+                    var exceptionMessage = $"Timed out after {waitTimeout.TotalSeconds} seconds";
+                    if (!string.IsNullOrEmpty(message))
+                    {
+                        exceptionMessage += $": {message}";
+                    }
+
+                    throw new TimeoutException(exceptionMessage);
+                }
+                Thread.Sleep(checkInterval);
+            }
         }
 
         private static TimeSpan ResolveConditionTimeout(TimeSpan? timeout)

@@ -49,12 +49,11 @@ namespace AutomationFramework.Utilities
 
         public static string GetOutputDirectory()
         {
-            var location = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, OutputFolder);
+            var location = Path.Combine(AppContext.BaseDirectory, OutputFolder);
             if (!Directory.Exists(location))
             {
                 Directory.CreateDirectory(location);
             }
-
             return location;
         }
 

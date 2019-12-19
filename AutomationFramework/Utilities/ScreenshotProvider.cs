@@ -12,7 +12,9 @@ namespace AutomationFramework.Utilities
             var image = GetImage(Browser.GetInstance().GetScreenshot());
             var fileLocation = Path.Combine(FileProvider.GetOutputDirectory(), name);
             image.Save(fileLocation, ImageFormat.Png);
-            return fileLocation;
+            var imageLocation = $"{fileLocation}.png";
+            File.Move(fileLocation, imageLocation);
+            return imageLocation;
         }
 
         private static Image GetImage(byte[] imageSource)

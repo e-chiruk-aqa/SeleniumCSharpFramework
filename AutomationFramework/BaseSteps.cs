@@ -1,15 +1,14 @@
 ﻿using System;
 using System.IO;
 using Allure.Commons;
-using NLog;
+using AutomationFramework.Logging;
 using NUnit.Framework;
 
 namespace AutomationFramework
 {
-    
     public class BaseSteps : AllureReport
     {
-        public static Logger Logger = LogManager.GetCurrentClassLogger();
+        public static Logger Logger = Logger.Instance;
 
         [OneTimeSetUp]
         public void SetupForAllure()

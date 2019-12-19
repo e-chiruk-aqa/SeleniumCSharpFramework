@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Configuration;
 using AutomationFramework.Configuration;
+using AutomationFramework.Logging;
 using AutomationFramework.Utilities;
-using NLog;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -24,7 +23,7 @@ namespace AutomationFramework.Browsers
 
         public static ISettingsFile SettingsFile { get; private set; }
 
-        public static Logger Logger = LogManager.GetCurrentClassLogger();
+        public static Logger Logger = Logger.Instance;
 
         private Browser() { }
 

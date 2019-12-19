@@ -2,7 +2,7 @@
 using System.IO;
 using AutomationFramework.Configuration;
 using AutomationFramework.Configuration.WebDriverSettings;
-using NLog;
+using AutomationFramework.Logging;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
@@ -15,7 +15,7 @@ namespace AutomationFramework.Browsers
 {
     public class BrowserFactory
     {
-        public static Logger Logger = LogManager.GetCurrentClassLogger();
+        public static Logger Logger = Logger.Instance;
 
         private static readonly object WebDriverDownloadingLock = new object();
 
@@ -27,7 +27,7 @@ namespace AutomationFramework.Browsers
 
         private static IWebDriver CreateDriver(IBrowserProfile browserProfile)
         {
-            Logger.Info("${browserProfile.BrowserName} driver initialization");
+            Logger.Info($"{browserProfile.BrowserName} driver initialization");
             switch (browserProfile.BrowserName)
             {
                 case BrowserName.Chrome:
