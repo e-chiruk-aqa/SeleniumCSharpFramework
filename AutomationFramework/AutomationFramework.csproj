@@ -16,6 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ashot-dotnet-master\AShotNet\AShotNet.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="allureConfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

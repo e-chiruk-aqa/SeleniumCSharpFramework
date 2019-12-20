@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlinerTest", "OnlinerTest\OnlinerTest.csproj", "{5E345B58-16E0-4660-A9C9-DB2C60BD3147}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationFramework", "AutomationFramework\AutomationFramework.csproj", "{0BAE3F44-29EF-42D7-8083-2CD08A023CD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomationFramework", "AutomationFramework\AutomationFramework.csproj", "{0BAE3F44-29EF-42D7-8083-2CD08A023CD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AShotNet", "..\ashot-dotnet-master\AShotNet\AShotNet.csproj", "{C1042932-561C-4E1F-99A6-DF3AEFF01DD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0BAE3F44-29EF-42D7-8083-2CD08A023CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BAE3F44-29EF-42D7-8083-2CD08A023CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BAE3F44-29EF-42D7-8083-2CD08A023CD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1042932-561C-4E1F-99A6-DF3AEFF01DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1042932-561C-4E1F-99A6-DF3AEFF01DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1042932-561C-4E1F-99A6-DF3AEFF01DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1042932-561C-4E1F-99A6-DF3AEFF01DD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
