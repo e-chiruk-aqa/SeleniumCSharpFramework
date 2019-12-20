@@ -1,5 +1,4 @@
-﻿using AutomationFramework.Logging;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 
 namespace AutomationFramework.Elements
 {
@@ -17,7 +16,7 @@ namespace AutomationFramework.Elements
         {
             get
             {
-                LogElementAction("Checking state");
+                LogElementAction("Getting state");
                 return GetElement().Selected;
             }
         }
@@ -34,7 +33,7 @@ namespace AutomationFramework.Elements
 
         private void SetState(bool state)
         {
-            LogElementAction("Setting state", state);
+            LogElementAction("Setting state '{0}'", state);
             if (state != IsChecked)
             {
                 Click();

@@ -74,11 +74,11 @@ namespace OnlinerTest.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Searche iPhone in catalog")]
-        public virtual void SearcheIPhoneInCatalog()
+        [NUnit.Framework.DescriptionAttribute("Search iPhone in catalog")]
+        public virtual void SearchIPhoneInCatalog()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Searche iPhone in catalog", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search iPhone in catalog", null, ((string[])(null)));
 #line 3
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -109,13 +109,23 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("Catalog page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 7
- testRunner.When("I select the \'Apple\' filter by manufacturer on Mobile phones page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to \'Мобильные телефоны\' page from Catalog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
-  testRunner.And("I open \'iPhone 11 64GB\' phone", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("\'Мобильные телефоны\' catalog page is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Производитель"});
+                table1.AddRow(new string[] {
+                            "Apple"});
 #line 9
- testRunner.Then("\'iPhone 11 64GB\' page is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I apply filters on Catalog page:", ((string)(null)), table1, "When ");
+#line hidden
+#line 12
+  testRunner.And("I open \'Смартфон Apple iPhone 11 64GB (черный)\' product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 13
+ testRunner.Then("\'Смартфон Apple iPhone 11 64GB (черный)\' catalog product page is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

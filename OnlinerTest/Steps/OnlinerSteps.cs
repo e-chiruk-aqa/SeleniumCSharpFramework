@@ -2,6 +2,7 @@
 using AutomationFramework.Browsers;
 using NUnit.Framework;
 using OnlinerTest.Forms;
+using OnlinerTest.Forms.Catalog;
 using TechTalk.SpecFlow;
 
 namespace OnlinerTest.Steps
@@ -22,27 +23,40 @@ namespace OnlinerTest.Steps
         }
 
         [Then(@"Catalog page is opened")]
-        public void ThenCatalogPageIsOpened()
+        public void CheckCatalogPageIsOpened()
         {
             Assert.IsTrue(new CatalogForm().WaitForDisplayed());
         }
 
-        [When(@"I select the '(.*)' filter by manufacturer on Mobile phones page")]
-        public void WhenISelectTheFilterByManufacturerOnMobilePhonesPage(string p0)
+        [When(@"I go to '(.*)' page from Catalog")]
+        public void GoToPageFromCatalog(string pageName)
         {
-            ScenarioContext.Current.Pending();
+            new CatalogForm().SelectCatalogBarItemByName(pageName);
         }
 
-        [When(@"I open '(.*)' phone")]
-        public void WhenIOpenPhone(string p0)
+        [Then(@"'(.*)' catalog page is open")]
+        public void CheckCatalogPageByNameIsOpen(string name)
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(new CatalogByNameForm(name).WaitForDisplayed());
         }
 
-        [Then(@"'(.*)' page is open")]
-        public void ThenPageIsOpen(string p0)
+        [When(@"I apply filters on Catalog page:")]
+        public void ApplyFiltersOnCatalogPage(Table table)
         {
-            ScenarioContext.Current.Pending();
+            new CatalogFilterForm().ApplyFilters(table);
+        }
+
+
+        [When(@"I open '(.*)' product")]
+        public void GoToProduct(string name)
+        {
+            new CatalogProductsForm().SelectProduct(name);
+        }
+
+        [Then(@"'(.*)' catalog product page is open")]
+        public void CheckCatalogProductPageIsOpen(string product)
+        {
+            Assert.AreEqual(product, new CatalogProductForm().GetTitle(), "Unexpected product opened");
         }
 
     }

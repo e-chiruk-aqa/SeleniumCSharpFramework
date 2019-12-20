@@ -21,7 +21,7 @@ namespace AutomationFramework.Configuration.WebDriverSettings
             {
                 var options = new ChromeOptions();
                 SetChromePrefs(options);
-                SetCapabilities(options, (name, value) => options.AddAdditionalCapability(name, value, isGlobalCapability: true));
+                SetCapabilities(options, (name, value) => options.AddAdditionalCapability(name, value, true));
                 SetChromeArguments(options);
                 return options;
             }

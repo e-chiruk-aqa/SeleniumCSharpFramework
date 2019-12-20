@@ -40,7 +40,6 @@
   ],
 
   "environment": {
-    "TestVariable": "This is value of test variable. Remove it from allureConfig.json",
     "runtime": [
       {
         "OS": "System.Environment.OS",

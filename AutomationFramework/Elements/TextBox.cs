@@ -17,13 +17,13 @@ namespace AutomationFramework.Elements
 
         public void Type(string value, bool secret = false)
         {
-            LogElementAction("Typing", secret ? SecretMask : value);
+            LogElementAction("Typing '{0}'", secret ? SecretMask : value);
             GetElement().SendKeys(value);
         }
 
         public void ClearAndType(string value, bool secret = false)
         {
-            LogElementAction("Typing", secret ? SecretMask : value);
+            LogElementAction("Typing '{0}'", secret ? SecretMask : value);
             GetElement().Clear();
             GetElement().SendKeys(value);
         }

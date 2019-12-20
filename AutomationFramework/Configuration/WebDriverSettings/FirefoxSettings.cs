@@ -16,7 +16,7 @@ namespace AutomationFramework.Configuration.WebDriverSettings
 
         protected override IDictionary<string, Action<DriverOptions, object>> KnownCapabilitySetters => new Dictionary<string, Action<DriverOptions, object>>
         {
-            //TODO
+            //TODO add firefox support
         };
 
         public override DriverOptions DriverOptions { get; }

@@ -61,15 +61,23 @@ namespace AutomationFramework.Browsers
 
         public void WaitForPageToLoad()
         {
-            Func<IWebDriver, bool> condition = driver =>
+            Func<IWebDriver, bool> jsLoad = driver =>
             {
                 var result =
                     ((IJavaScriptExecutor) driver).ExecuteScript(
                         "return document['readyState'] ? 'complete' == document.readyState : true");
                 return result is bool && (bool) result;
             };
+            Func<IWebDriver, bool> jQueryLoad = driver =>
+            {
+                var result =
+                    ((IJavaScriptExecutor)driver).ExecuteScript(
+                        "return jQuery.active == 0");
+                return result is bool && (bool)result;
+            };
             var wait = new WebDriverWait(GetDriver(), PageLoadTimeout);
-            wait.Until(condition);
+            wait.Until(jQueryLoad);
+            wait.Until(jsLoad);
         }
 
         public void SetImplicitWaitTimeout(TimeSpan timeout)

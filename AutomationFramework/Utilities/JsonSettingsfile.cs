@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using AutomationFramework.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -97,7 +98,7 @@ namespace AutomationFramework.Utilities
 
         private static T ConvertEnvVar<T>(Func<T> convertMethod, string envValue, string jsonPath)
         {
-            //Logger.Instance.Debug($"***** Using variable passed from environment {jsonPath.Substring(1)}={envValue}");
+            Logger.Instance.Debug($"***** Using variable passed from environment {jsonPath.Substring(1)}={envValue}");
             try
             {
                 return convertMethod();

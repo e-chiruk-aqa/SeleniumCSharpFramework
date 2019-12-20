@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using AutomationFramework.Browsers;
 using AutomationFramework.Elements;
 using AutomationFramework.Utilities;
 using OpenQA.Selenium;
@@ -13,7 +14,8 @@ namespace AutomationFramework.Forms
         protected BaseForm(By formSelector, string formName)
         {
             this.formSelector = formSelector;
-            this.formName = formName;
+            this.formName = $"{formName} form";
+            Browser.GetInstance().WaitForPageToLoad();
         }
 
         public bool WaitForDisplayed()

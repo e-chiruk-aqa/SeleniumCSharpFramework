@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using AutomationFramework.Browsers;
 using AutomationFramework.Logging;
 using AutomationFramework.Utilities;
 using OpenQA.Selenium;
@@ -35,15 +36,21 @@ namespace AutomationFramework.Elements
             }
         }
 
+        public bool IsExists()
+        {
+            LogElementAction("Check existence");
+            return FindElements(selector, timeout: TimeSpan.Zero).Any();
+        }
+
         public bool IsDisplayed()
         {
-            LogElementAction("Checking is displayed");
+            LogElementAction("Check is displayed");
             return GetElement().Displayed;
         }
 
         public bool IsEnabled()
         {
-            LogElementAction("Checking is enabled");
+            LogElementAction("Check is enabled");
             return GetElement().Enabled;
         }
 
@@ -53,9 +60,16 @@ namespace AutomationFramework.Elements
             return GetElement().Text;
         }
 
+        public void ClickViaJs()
+        {
+            LogElementAction("Clicking via js");
+            ((IJavaScriptExecutor)Browser.GetInstance().GetDriver()).ExecuteScript(
+                "arguments[0].click();", GetElement());
+        }
+
         public void Click()
         {
-            LogElementAction("Click");
+            LogElementAction("Clicking");
             GetElement().Click();
         }
 
@@ -63,6 +77,19 @@ namespace AutomationFramework.Elements
         {
             LogElementAction("Sending keys");
             GetElement().SendKeys(key);
+        }
+
+        public void ScrollToElement()
+        {
+            LogElementAction("Scrolling to");
+            ((IJavaScriptExecutor) Browser.GetInstance().GetDriver()).ExecuteScript(
+                "arguments[0].scrollIntoView(true);", GetElement());
+            WaitForDisplayed();
+        }
+
+        public void WaitForDisplayed()
+        {
+            SmartWait.WaitFor(d => IsDisplayed());
         }
 
         public IWebElement FindElement(By selector, ElementState state = ElementState.Exists, TimeSpan? timeout = null)
@@ -110,9 +137,7 @@ namespace AutomationFramework.Elements
 
         public void LogElementAction(string message, params object[] args)
         {
-            //todo
-            var arguments = args.Length != 0 ? args : Enumerable.Empty<object>();
-            Logger.Instance.Info($"{name} :: {message} {arguments}");
+            Logger.Instance.Info(string.Concat( $"{name} :: ", string.Format(message, args)));
         }
 
         private void HandleTimeoutException(WebDriverTimeoutException ex, ElementStates elementState, By selector, List<IWebElement> foundElements)
