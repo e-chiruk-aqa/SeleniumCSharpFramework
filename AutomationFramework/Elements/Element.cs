@@ -4,6 +4,9 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using AShotNet;
+using AShotNet.Coordinates;
+using AShotNet.Cropper.Indent;
+using AShotNet.ScreenTaker;
 using AutomationFramework.Browsers;
 using AutomationFramework.Logging;
 using AutomationFramework.Utilities;
@@ -73,7 +76,6 @@ namespace AutomationFramework.Elements
         {
             LogElementAction("Clicking");
             GetElement().Click();
-            //new AShot().TakeScreenshot(Browser.GetInstance().GetDriver(), GetElement()).getImage().Save(Path.Combine(FileProvider.GetOutputDirectory(), "click.png"));
         }
 
         public void SendKeys(string key)

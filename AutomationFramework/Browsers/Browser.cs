@@ -29,7 +29,7 @@ namespace AutomationFramework.Browsers
 
         private static void InitProperties()
         {
-            Logger.Info("Init driver properties");
+            Logger.Info("Initialization driver properties");
             SettingsFile = Settings.GetSettings();
             PageLoadTimeout = TimeSpan.FromSeconds(double.Parse(SettingsFile.GetValue<string>(".timeouts.timeoutPageLoad")));
             ImplicitWaitTimeout = TimeSpan.FromSeconds(double.Parse(SettingsFile.GetValue<string>(".timeouts.timeoutImplicit")));
@@ -85,6 +85,11 @@ namespace AutomationFramework.Browsers
             GetDriver().Manage().Timeouts().ImplicitWait = timeout;
         }
 
+        public void Scroll(int pixels)
+        {
+            ((IJavaScriptExecutor) GetDriver()).ExecuteScript($"window.scrollBy(0,{pixels})");
+        }
+
         public void Quit()
         {
             Logger.Info("Closing browser");
@@ -94,6 +99,7 @@ namespace AutomationFramework.Browsers
 
         public void WindowMaximize()
         {
+            Logger.Info("Window maximizing ");
             GetDriver().Manage().Window.Maximize();
         }
 

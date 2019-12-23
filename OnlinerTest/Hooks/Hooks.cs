@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using Allure.Commons;
 using AutomationFramework.Browsers;
 using AutomationFramework.Logging;
@@ -23,10 +24,10 @@ namespace OnlinerTest.Hooks
         public void Before()
         {
             Browser.GetInstance().WindowMaximize();
+            //Browser.GetInstance().GetDriver().Manage().Window.Size = new Size(1400, 1000);
             AllureLifecycle.Instance.SetCurrentTestActionInException(() =>
             {
-                var arr = Browser.GetInstance().GetScreenshot();
-                AllureLifecycle.Instance.AddAttachment("Screenshot", AllureLifecycle.AttachFormat.ImagePng, arr);
+                AllureLifecycle.Instance.AddAttachment("Screenshot", "image/png", MakeScreenshot());
             });
         }
 
