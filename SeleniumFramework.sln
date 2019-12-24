@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlinerTest", "OnlinerTest\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomationFramework", "AutomationFramework\AutomationFramework.csproj", "{0BAE3F44-29EF-42D7-8083-2CD08A023CD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AShotNet", "..\ashot-dotnet-master\AShotNet\AShotNet.csproj", "{C1042932-561C-4E1F-99A6-DF3AEFF01DD0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AShotNet", "ashot-dotnet\AShotNet\AShotNet.csproj", "{C1042932-561C-4E1F-99A6-DF3AEFF01DD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

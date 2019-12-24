@@ -20,6 +20,8 @@ namespace AutomationFramework.Elements
         private readonly string name;
         private readonly ElementState state;
 
+        private delegate void Action();
+
         public Element(By selector, string name, ElementState state)
         {
             this.selector = selector;
@@ -75,13 +77,28 @@ namespace AutomationFramework.Elements
         public void Click()
         {
             LogElementAction("Clicking");
-            GetElement().Click();
+            Action click = () => GetElement().Click();
+            HandleElementException(click);
         }
 
         public void SendKeys(string key)
         {
             LogElementAction("Sending keys");
             GetElement().SendKeys(key);
+        }
+
+        public void SaveScreenshotWithHighlightedElement(string filename)
+        {
+            var driver = Browser.GetInstance().GetDriver();
+            var js = (IJavaScriptExecutor) driver;
+            var element = GetElement();
+            var bgcolor = element.GetCssValue("backgroundColor");
+            js.ExecuteScript("arguments[0].style.backgroundColor = '" + "red" + "'", element);
+            new AShot().ShootingStrategy(new ViewportPastingStrategy(100))
+                .TakeScreenshot(driver)
+                .getImage()
+                .Save(Path.Combine(FileProvider.GetOutputDirectory(), $"{filename}_{DateTime.Now.ToFileTime()}.png"));
+            js.ExecuteScript("arguments[0].style.backgroundColor = '" + bgcolor + "'", element);
         }
 
         public void ScrollToElement()
@@ -143,6 +160,23 @@ namespace AutomationFramework.Elements
         public void LogElementAction(string message, params object[] args)
         {
             Logger.Instance.Info(string.Concat( $"{name} :: ", string.Format(message, args)));
+        }
+
+        private void HandleElementException(Action action)
+        {
+            try
+            {
+                action.Invoke();
+            }
+            catch (InvalidElementStateException exception)
+            {
+                Logger.Instance.Fatal($"{name} :: Invalid element state", exception);
+                new AShot().CoordsProvider(new WebDriverCoordsProvider())
+                    .ImageCropper(new IndentCropper().AddIndentFilter(new BlurFilter()))
+                    .TakeScreenshot(Browser.GetInstance().GetDriver(), GetElement())
+                    .getImage()
+                    .Save(Path.Combine(FileProvider.GetOutputDirectory(), $"FailedElement_{DateTime.Now.ToFileTime()}.png"));
+            }
         }
 
         private void HandleTimeoutException(WebDriverTimeoutException ex, ElementStates elementState, By selector, List<IWebElement> foundElements)

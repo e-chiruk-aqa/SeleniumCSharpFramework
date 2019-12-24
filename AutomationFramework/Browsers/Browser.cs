@@ -76,7 +76,14 @@ namespace AutomationFramework.Browsers
                 return result is bool && (bool)result;
             };
             var wait = new WebDriverWait(GetDriver(), PageLoadTimeout);
-            wait.Until(jQueryLoad);
+            try
+            {
+                wait.Until(jQueryLoad);
+            }
+            catch (WebDriverException exception)
+            {
+                Logger.Debug("No jquery", exception);
+            }
             wait.Until(jsLoad);
         }
 

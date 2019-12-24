@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\ashot-dotnet-master\AShotNet\AShotNet.csproj" />
+    <ProjectReference Include="..\ashot-dotnet\AShotNet\AShotNet.csproj" />
   </ItemGroup>
 
   <ItemGroup>

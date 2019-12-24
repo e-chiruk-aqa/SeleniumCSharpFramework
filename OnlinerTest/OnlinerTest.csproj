@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ashot-dotnet\AShotNet\AShotNet.csproj" />
     <ProjectReference Include="..\AutomationFramework\AutomationFramework.csproj" />
   </ItemGroup>
   <ItemGroup>
