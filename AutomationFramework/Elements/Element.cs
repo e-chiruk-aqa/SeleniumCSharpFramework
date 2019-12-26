@@ -168,14 +168,25 @@ namespace AutomationFramework.Elements
             {
                 action.Invoke();
             }
-            catch (InvalidElementStateException exception)
+            catch (StaleElementReferenceException exception) //todo
             {
                 Logger.Instance.Fatal($"{name} :: Invalid element state", exception);
                 new AShot().CoordsProvider(new WebDriverCoordsProvider())
                     .ImageCropper(new IndentCropper().AddIndentFilter(new BlurFilter()))
                     .TakeScreenshot(Browser.GetInstance().GetDriver(), GetElement())
                     .getImage()
-                    .Save(Path.Combine(FileProvider.GetOutputDirectory(), $"FailedElement_{DateTime.Now.ToFileTime()}.png"));
+                    .Save(Path.Combine(FileProvider.GetFailedScreensDirectory(), $"FailedElement_{DateTime.Now.ToFileTime()}.png"));
+                throw;
+            }
+            catch (InvalidElementStateException exception) //todo
+            {
+                Logger.Instance.Fatal($"{name} :: Invalid element state", exception);
+                new AShot().CoordsProvider(new WebDriverCoordsProvider())
+                    .ImageCropper(new IndentCropper().AddIndentFilter(new BlurFilter()))
+                    .TakeScreenshot(Browser.GetInstance().GetDriver(), GetElement())
+                    .getImage()
+                    .Save(Path.Combine(FileProvider.GetFailedScreensDirectory(), $"FailedElement_{DateTime.Now.ToFileTime()}.png"));
+                throw;
             }
         }
 

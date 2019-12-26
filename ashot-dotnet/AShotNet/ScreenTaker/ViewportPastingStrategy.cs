@@ -19,7 +19,7 @@ namespace AShotNet.ScreenTaker
         {
             var js = (IJavaScriptExecutor
                 ) driver;
-            return (int) ((System.Int64) js.ExecuteScript("return window.innerHeight"));
+            return (int) ((System.Int64) js.ExecuteScript("return document.body.clientHeight"));
         }
 
         public override int getFullWidth(IWebDriver driver)
@@ -33,7 +33,7 @@ namespace AShotNet.ScreenTaker
         {
             var js = (IJavaScriptExecutor
                 ) driver;
-            return (int) ((System.Int64)js.ExecuteScript("return window.outerHeight"));
+            return (int) ((System.Int64)js.ExecuteScript("return window.innerHeight"));
         }
     }
 }

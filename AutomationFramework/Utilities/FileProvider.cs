@@ -8,6 +8,7 @@ namespace AutomationFramework.Utilities
     {
         private const string ResourcesFolder = "Resources";
         private const string OutputFolder = "Output";
+        private const string FailedScreensFolder = "FailedScreens";
 
         public static string GetTextFromEmbeddedResource(string embeddedResourcePath, Assembly resourceAssembly = null)
         {
@@ -50,6 +51,16 @@ namespace AutomationFramework.Utilities
         public static string GetOutputDirectory()
         {
             var location = Path.Combine(AppContext.BaseDirectory, OutputFolder);
+            if (!Directory.Exists(location))
+            {
+                Directory.CreateDirectory(location);
+            }
+            return location;
+        }
+
+        public static string GetFailedScreensDirectory()
+        {
+            var location = Path.Combine(GetOutputDirectory(), FailedScreensFolder);
             if (!Directory.Exists(location))
             {
                 Directory.CreateDirectory(location);

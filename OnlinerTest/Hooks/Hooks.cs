@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using Allure.Commons;
 using AutomationFramework.Browsers;
 using AutomationFramework.Logging;
@@ -24,7 +25,6 @@ namespace OnlinerTest.Hooks
         public void Before()
         {
             Browser.GetInstance().WindowMaximize();
-            //Browser.GetInstance().GetDriver().Manage().Window.Size = new Size(1400, 1000);
             AllureLifecycle.Instance.SetCurrentTestActionInException(() =>
             {
                 AllureLifecycle.Instance.AddAttachment("Screenshot", "image/png", MakeScreenshot());
@@ -36,6 +36,10 @@ namespace OnlinerTest.Hooks
         {
             if (_scenarioContext.TestError != null)
             {
+                foreach (var failedScreen in Directory.GetFiles(FileProvider.GetFailedScreensDirectory()))
+                {
+                    _allureLifecycle.AddAttachment(failedScreen);
+                }
                 _allureLifecycle.AddAttachment(MakeScreenshot());
             }
             Browser.GetInstance().Quit();
