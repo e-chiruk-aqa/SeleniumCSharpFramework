@@ -48,6 +48,14 @@ namespace AutomationFramework.Utilities
             }
         }
 
+        public static void CleanDirectory(string directoryLocation)
+        {
+            foreach (var file in new DirectoryInfo(directoryLocation).GetFiles())
+            {
+                file.Delete();
+            }
+        }
+
         public static string GetOutputDirectory()
         {
             var location = Path.Combine(AppContext.BaseDirectory, OutputFolder);

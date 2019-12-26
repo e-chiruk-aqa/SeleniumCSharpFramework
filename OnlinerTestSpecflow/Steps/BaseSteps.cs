@@ -4,7 +4,7 @@ using Allure.Commons;
 using AutomationFramework.Logging;
 using NUnit.Framework;
 
-namespace AutomationFramework
+namespace OnlinerTestSpecflow.Steps
 {
     public class BaseSteps : AllureReport
     {
