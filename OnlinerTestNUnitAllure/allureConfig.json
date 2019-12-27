@@ -1,0 +1,10 @@
+﻿{
+  "allure": {
+    "directory": "../../../../allure-results",
+    "links": [
+      "{link}",
+      "{issue}",
+      "{tms}"
+    ]
+  }
+}

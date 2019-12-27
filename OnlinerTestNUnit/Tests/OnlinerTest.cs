@@ -15,7 +15,7 @@ namespace OnlinerTestNUnit.Tests
         public void SearchIPhoneInCatalog()
         {
             Step("Open onliner home page", () => 
-                Browser.GetInstance().Navigate("http://www.onliner.by"));
+                Browser.GetInstance().Navigate("https://www.onliner.by"));
             Step("Onliner home page is opened", () =>
                 Assert.IsTrue(new OnlinerHome().WaitForDisplayed()));
             Step("Open catalog", () =>
