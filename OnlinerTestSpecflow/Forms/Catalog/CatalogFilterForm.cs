@@ -1,9 +1,8 @@
-﻿using AngleSharp.Common;
+﻿using System.Collections.Generic;
 using AutomationFramework.Browsers;
 using AutomationFramework.Elements;
 using AutomationFramework.Forms;
 using OpenQA.Selenium;
-using TechTalk.SpecFlow;
 
 namespace OnlinerTestSpecflow.Forms.Catalog
 {
@@ -15,13 +14,13 @@ namespace OnlinerTestSpecflow.Forms.Catalog
         {
         }
 
-        public void ApplyFilters(Table data)
+        public void ApplyFilters(Dictionary<string, List<string>> data)
         {
-            foreach (var row in data.Rows)
+            foreach (var sectionName in data.Keys)
             {
-                foreach (var sectionName in row.Keys)
+                foreach (var checkboxName in data.GetValueOrDefault(sectionName))
                 {
-                    var checkbox = FilterCheckBox(sectionName, row.GetOrDefault(sectionName, string.Empty));
+                    var checkbox = FilterCheckBox(sectionName, checkboxName);
                     checkbox.ScrollToElement();
                     checkbox.Check();
                     Browser.GetInstance().WaitForPageToLoad();

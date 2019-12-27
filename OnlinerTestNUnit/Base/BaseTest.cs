@@ -21,11 +21,6 @@ namespace OnlinerTestNUnit.Base
         public void SetupForAllure()
         {
             Environment.CurrentDirectory = Path.GetDirectoryName(GetType().Assembly.Location);
-            Allure.SetGlobalActionInException(() =>
-            {
-                Allure.AddAttachment("Screenshot", "image/png",
-                    ScreenshotProvider.PublishScreenshot($"Screenshot_{DateTime.Now.ToFileTime()}"));
-            });
             var nunitFixture = TestExecutionContext.CurrentContext.CurrentTest;
 
             var fixture = new TestResultContainer
@@ -115,6 +110,10 @@ namespace OnlinerTestNUnit.Base
             catch (Exception e)
             {
                 stepException = e;
+                AllureHelper.AttachPng("FailedElement", File.ReadAllBytes(new DirectoryInfo(FileProvider.GetFailedScreensDirectory())
+                    .GetFiles().OrderByDescending(file => file.LastWriteTime).First().FullName));
+                AllureHelper.AttachPng("Screenshot", 
+                    File.ReadAllBytes(ScreenshotProvider.PublishScreenshot($"Screenshot_{DateTime.Now.ToFileTime()}")));
                 throw;
             }
             finally

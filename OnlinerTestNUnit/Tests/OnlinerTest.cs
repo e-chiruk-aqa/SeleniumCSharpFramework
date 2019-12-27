@@ -1,4 +1,4 @@
-﻿using Allure.Commons;
+﻿using System.Collections.Generic;
 using AutomationFramework.Browsers;
 using NUnit.Framework;
 using OnlinerTestNUnit.Base;
@@ -26,7 +26,17 @@ namespace OnlinerTestNUnit.Tests
                 new CatalogForm().SelectCatalogBarItemByName("Мобильные телефоны"));
             Step("Mobile phones catalog page is opened", () =>
                 Assert.IsTrue(new CatalogByNameForm("Мобильные телефоны").WaitForDisplayed()));
-
+            Step("Open 'iPhone 11 64GB (черный)' product", () =>
+            {
+                var data = new Dictionary<string, List<string>>
+                {
+                    {"Производитель", new List<string> {"Apple"}}
+                };
+                new CatalogFilterForm().ApplyFilters(data);
+                new CatalogProductsForm().SelectProduct("Смартфон Apple iPhone 11 64GB (черный)");
+            });
+            Step("'iPhone 11 64GB (черный)' product page is open", () => 
+                Assert.AreEqual("Смартфон Apple iPhone 11 64GB (черный)", new CatalogProductForm().GetTitle()));
         }
     }
 }

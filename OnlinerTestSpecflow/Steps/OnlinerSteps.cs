@@ -1,5 +1,6 @@
 ﻿using AutomationFramework.Browsers;
 using NUnit.Framework;
+using OnlinerTestSpecflow.Extensions;
 using OnlinerTestSpecflow.Forms;
 using OnlinerTestSpecflow.Forms.Catalog;
 using TechTalk.SpecFlow;
@@ -42,7 +43,8 @@ namespace OnlinerTestSpecflow.Steps
         [When(@"I apply filters on Catalog page:")]
         public void ApplyFiltersOnCatalogPage(Table table)
         {
-            new CatalogFilterForm().ApplyFilters(table);
+            var data = table.ToDictionaryList();
+            new CatalogFilterForm().ApplyFilters(data);
         }
 
 
