@@ -1,7 +1,7 @@
 ﻿using AutomationFramework.Forms;
 using OpenQA.Selenium;
 
-namespace OnlinerTestSpecflow.Forms
+namespace OnlinerTestNUnitAllure.Forms
 {
     public class OnlinerHome : BaseForm
     {

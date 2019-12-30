@@ -1,8 +1,9 @@
 ﻿using AutomationFramework.Elements;
 using AutomationFramework.Forms;
+using NUnit.Allure.Steps;
 using OpenQA.Selenium;
 
-namespace OnlinerTestSpecflow.Forms.Catalog
+namespace OnlinerTestNUnitAllure.Forms.Catalog
 {
     public class CatalogForm : BaseForm
     {
@@ -12,6 +13,7 @@ namespace OnlinerTestSpecflow.Forms.Catalog
         {
         }
 
+        [AllureStep("Open &name& page from Catalog")]
         public void SelectCatalogBarItemByName(string name)
         {
             CatalogBarItemByName(name).Click();

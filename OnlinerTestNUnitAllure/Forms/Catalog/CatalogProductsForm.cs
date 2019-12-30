@@ -1,9 +1,10 @@
 ﻿using AutomationFramework.Browsers;
 using AutomationFramework.Elements;
 using AutomationFramework.Forms;
+using NUnit.Allure.Steps;
 using OpenQA.Selenium;
 
-namespace OnlinerTestSpecflow.Forms.Catalog
+namespace OnlinerTestNUnitAllure.Forms.Catalog
 {
     public class CatalogProductsForm : BaseForm
     {
@@ -15,6 +16,7 @@ namespace OnlinerTestSpecflow.Forms.Catalog
         {
         }
 
+        [AllureStep("Open &name& product")]
         public void SelectProduct(string name)
         {
             var product = ProductByName(name);

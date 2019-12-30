@@ -2,9 +2,10 @@
 using AutomationFramework.Browsers;
 using AutomationFramework.Elements;
 using AutomationFramework.Forms;
+using NUnit.Allure.Steps;
 using OpenQA.Selenium;
 
-namespace OnlinerTestSpecflow.Forms.Catalog
+namespace OnlinerTestNUnitAllure.Forms.Catalog
 {
     public class CatalogFilterForm : BaseForm
     {
@@ -14,6 +15,7 @@ namespace OnlinerTestSpecflow.Forms.Catalog
         {
         }
 
+        [AllureStep("I apply filters on Catalog page")]
         public void ApplyFilters(Dictionary<string, List<string>> data)
         {
             foreach (var sectionName in data.Keys)

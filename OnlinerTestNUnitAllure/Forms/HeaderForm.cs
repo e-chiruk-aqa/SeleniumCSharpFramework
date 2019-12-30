@@ -1,8 +1,9 @@
 ﻿using AutomationFramework.Elements;
 using AutomationFramework.Forms;
+using NUnit.Allure.Steps;
 using OpenQA.Selenium;
 
-namespace OnlinerTestSpecflow.Forms
+namespace OnlinerTestNUnitAllure.Forms
 {
     public class HeaderForm : BaseForm
     {
@@ -11,6 +12,7 @@ namespace OnlinerTestSpecflow.Forms
         {
         }
 
+        [AllureStep("Open &name& header tab")]
         public void SelectTabByName(string name)
         {
             WaitForDisplayed();

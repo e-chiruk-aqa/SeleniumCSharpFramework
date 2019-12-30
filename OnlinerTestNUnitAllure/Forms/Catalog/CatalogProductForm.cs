@@ -2,7 +2,7 @@
 using AutomationFramework.Forms;
 using OpenQA.Selenium;
 
-namespace OnlinerTestSpecflow.Forms.Catalog
+namespace OnlinerTestNUnitAllure.Forms.Catalog
 {
     public class CatalogProductForm : BaseForm
     {
