@@ -8,7 +8,7 @@ using NUnit.Framework.Interfaces;
 
 namespace OnlinerTestNUnitAllure.Tests
 {
-    public class BaseTest
+    public class BaseTest : AllureReport
     {
         [OneTimeSetUp]
         public void OneTimeSetup()

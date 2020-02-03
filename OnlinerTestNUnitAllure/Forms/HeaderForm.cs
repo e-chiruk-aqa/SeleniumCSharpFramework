@@ -1,6 +1,6 @@
-﻿using AutomationFramework.Elements;
+﻿using Allure.NUnit.Attributes;
+using AutomationFramework.Elements;
 using AutomationFramework.Forms;
-using NUnit.Allure.Steps;
 using OpenQA.Selenium;
 
 namespace OnlinerTestNUnitAllure.Forms
